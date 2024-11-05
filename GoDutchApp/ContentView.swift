@@ -23,8 +23,12 @@ struct ContentView: View {
             
             VStack {
                 HStack {
-                    DatePicker("", selection: $moneyManager.selectedDate, displayedComponents: .date)
-                        .labelsHidden()
+                    DatePicker("", selection: $moneyManager.selectedDate,
+                               displayedComponents: .date)
+                    .labelsHidden()
+                    Spacer()
+                }
+                HStack {
                     Spacer()
                     Text("金額：")
                     TextField("",text: $inputMoney)
@@ -56,18 +60,20 @@ struct ContentView: View {
                     resultOpacity = 1.0
                 }) {
                     Text("計算")
+                        .padding(14)
+                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
                 }
+                
                 HStack {
                     Text("一人当たり金額：")
                     Spacer()
                     Text("\(moneyManager.personAmount, specifier: "%.1f")")
                         .opacity(resultOpacity)
                 }
-                .frame(width:UIScreen.main.bounds.width-50)
             }
+            .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.horizontal)
     }
 }
 
