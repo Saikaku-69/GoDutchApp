@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F6EEEA42CDA19BF00E0929B /* GoDutchAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEA32CDA19BF00E0929B /* GoDutchAppApp.swift */; };
+		7F6EEEA42CDA19BF00E0929B /* GoDutchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */; };
 		7F6EEEA62CDA19BF00E0929B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEA52CDA19BF00E0929B /* ContentView.swift */; };
 		7F6EEEA82CDA19C600E0929B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6EEEA72CDA19C600E0929B /* Assets.xcassets */; };
 		7F6EEEAB2CDA19C600E0929B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6EEEAA2CDA19C600E0929B /* Preview Assets.xcassets */; };
+		7F6EEEB92CDA28E400E0929B /* MoneyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEB82CDA28E400E0929B /* MoneyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7F6EEEA02CDA19BF00E0929B /* GoDutchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoDutchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F6EEEA32CDA19BF00E0929B /* GoDutchAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoDutchAppApp.swift; sourceTree = "<group>"; };
+		7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoDutchApp.swift; sourceTree = "<group>"; };
 		7F6EEEA52CDA19BF00E0929B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F6EEEA72CDA19C600E0929B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F6EEEAA2CDA19C600E0929B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F6EEEB82CDA28E400E0929B /* MoneyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,9 @@
 		7F6EEEA22CDA19BF00E0929B /* GoDutchApp */ = {
 			isa = PBXGroup;
 			children = (
-				7F6EEEA32CDA19BF00E0929B /* GoDutchAppApp.swift */,
+				7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */,
 				7F6EEEA52CDA19BF00E0929B /* ContentView.swift */,
+				7F6EEEB82CDA28E400E0929B /* MoneyManager.swift */,
 				7F6EEEA72CDA19C600E0929B /* Assets.xcassets */,
 				7F6EEEA92CDA19C600E0929B /* Preview Content */,
 			);
@@ -138,7 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6EEEA62CDA19BF00E0929B /* ContentView.swift in Sources */,
-				7F6EEEA42CDA19BF00E0929B /* GoDutchAppApp.swift in Sources */,
+				7F6EEEA42CDA19BF00E0929B /* GoDutchApp.swift in Sources */,
+				7F6EEEB92CDA28E400E0929B /* MoneyManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
