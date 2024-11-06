@@ -68,9 +68,8 @@ struct ContentView: View {
                 HStack {
                     Text("一人当たり金額：")
                     Spacer()
-                    Text("\(moneyManager.personAmount, specifier: "%.1f")")
+                    Text("\(moneyManager.personAmount, specifier: "%.1f")円")
                         .opacity(resultOpacity)
-                        .underline(color: Color.green)
                 } //計算結果
                 Spacer()
                 Button(action: {
@@ -93,7 +92,6 @@ struct ContentView: View {
         let personAmountMoney = moneyManager.personAmount
         
         paymentManager.addPaymentRecord(data: data, totalMoney: totalMoney, personAmountMoney: personAmountMoney)
-        print("\(data)" + "\(totalMoney)" + "\(personAmountMoney)")
     }
 }
 

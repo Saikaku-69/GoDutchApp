@@ -7,8 +7,8 @@
 import Foundation
 import SwiftUI
 
-class PaymentRecords:Identifiable {
-    let id = UUID()
+class PaymentRecords:Identifiable, Codable {
+    var id = UUID()
     var data: String
     var totalMoney: Double
     var personAmountMoney: Double
@@ -25,15 +25,20 @@ struct HistoryPayView: View {
     
     var body: some View {
         VStack {
-            List(paymentManager.paymentRecords) { record in
-                HStack {
-                    Text(record.data)
-                    Spacer()
-                    Text("総額：\(record.totalMoney,specifier: "%.1f")")
-                    Text("一人当たり：\(record.personAmountMoney,specifier: "%.1f")")
+            List {
+                ForEach(paymentManager.paymentRecords) { record in
+                    HStack {
+                        Text(record.data)
+                        Spacer()
+                        Text("\(Int(record.personAmountMoney))円")
+                    }
                 }
+                .onDelete(perform: delete)
             }
         }
+    }
+    private func delete(at offsets: IndexSet) {
+        paymentManager.paymentRecords.remove(atOffsets: offsets)
     }
 }
 
