@@ -15,6 +15,12 @@ class MoneyManager: ObservableObject {
     @Published var headCount:Double = 1
     @Published var personAmount: Double = 0
     
+    var selectedDateString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: selectedDate)
+    }
+    
     private init() {}
     
     func updateTotalPrice(from input: String) {
