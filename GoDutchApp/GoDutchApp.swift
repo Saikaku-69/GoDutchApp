@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct GoDutchAppApp: App {
+struct GoDutchApp: App {
+    @StateObject private var paymentManager = PaymentManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentTabView()
+                .environmentObject(paymentManager)
         }
     }
 }
