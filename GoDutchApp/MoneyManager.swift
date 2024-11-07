@@ -11,9 +11,9 @@ import SwiftUI
 class MoneyManager: ObservableObject {
     static let shared = MoneyManager()
     @Published var selectedDate = Date()
-    @Published var totalPrice: Double  = 0
+    @Published var totalPrice:Double  = 0
     @Published var headCount:Double = 1
-    @Published var personAmount: Double = 0
+    @Published var personAmount:Double = 0
     
     var selectedDateString: String {
         let dateFormatter = DateFormatter()
