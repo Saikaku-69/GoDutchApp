@@ -32,11 +32,15 @@ struct HistoryPayView: View {
                         Spacer()
                         Text("\(Int(record.personAmountMoney))円")
                     }
+                    .onTapGesture {
+                        print ("wifi")
+                    }
                 }
                 .onDelete(perform: delete)
             }
         }
     }
+    
     private func delete(at offsets: IndexSet) {
         paymentManager.paymentRecords.remove(atOffsets: offsets)
     }

@@ -59,6 +59,7 @@
 		7F6EEEA22CDA19BF00E0929B /* GoDutchApp */ = {
 			isa = PBXGroup;
 			children = (
+				7FA009F42CDC9B3D000F695E /* MyPage */,
 				7F6EEEBE2CDB612E00E0929B /* MainView */,
 				7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */,
 				7F6EEEA52CDA19BF00E0929B /* ContentView.swift */,
@@ -85,6 +86,13 @@
 				7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		7FA009F42CDC9B3D000F695E /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

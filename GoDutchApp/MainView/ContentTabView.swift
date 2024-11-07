@@ -20,7 +20,7 @@ struct ContentTabView: View {
             
             HistoryPayView()
                 .tabItem {
-                    Label("歴史",systemImage: "clock")
+                    Label("履歴",systemImage: "clock")
                 }
                 .tag(2)
         }
