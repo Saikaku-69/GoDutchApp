@@ -15,6 +15,7 @@
 		7F6EEEBD2CDB5F6000E0929B /* HistoryPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEBC2CDB5F6000E0929B /* HistoryPayView.swift */; };
 		7F6EEEC02CDB613F00E0929B /* ContentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEBF2CDB613F00E0929B /* ContentTabView.swift */; };
 		7F6EEEC22CDB6BAF00E0929B /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */; };
+		7FA00A032CDCD42F000F695E /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA00A022CDCD42F000F695E /* MemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7F6EEEBC2CDB5F6000E0929B /* HistoryPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPayView.swift; sourceTree = "<group>"; };
 		7F6EEEBF2CDB613F00E0929B /* ContentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabView.swift; sourceTree = "<group>"; };
 		7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		7FA00A022CDCD42F000F695E /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		7F6EEEA22CDA19BF00E0929B /* GoDutchApp */ = {
 			isa = PBXGroup;
 			children = (
+				7FA009FD2CDCCEEF000F695E /* Memo */,
 				7F6EEEBE2CDB612E00E0929B /* MainView */,
 				7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */,
 				7F6EEEA52CDA19BF00E0929B /* ContentView.swift */,
@@ -85,6 +88,14 @@
 				7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		7FA009FD2CDCCEEF000F695E /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				7FA00A022CDCD42F000F695E /* MemoView.swift */,
+			);
+			path = Memo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6EEEC22CDB6BAF00E0929B /* PaymentManager.swift in Sources */,
+				7FA00A032CDCD42F000F695E /* MemoView.swift in Sources */,
 				7F6EEEC02CDB613F00E0929B /* ContentTabView.swift in Sources */,
 				7F6EEEA62CDA19BF00E0929B /* ContentView.swift in Sources */,
 				7F6EEEA42CDA19BF00E0929B /* GoDutchApp.swift in Sources */,

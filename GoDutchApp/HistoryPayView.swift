@@ -22,6 +22,7 @@ class PaymentRecords:Identifiable, Codable {
 
 struct HistoryPayView: View {
     @EnvironmentObject var paymentManager: PaymentManager
+    @State private var selectedItem: PaymentRecords? = nil
     
     var body: some View {
         VStack {
@@ -32,11 +33,20 @@ struct HistoryPayView: View {
                         Spacer()
                         Text("\(Int(record.personAmountMoney))円")
                     }
+                    .onTapGesture {
+                        selectedItem = record
+                        print (selectedItem ?? 0)
+                    }
                 }
                 .onDelete(perform: delete)
             }
+            .sheet(item: $selectedItem) { record in
+                MemoView(record: record)
+                    .presentationDetents([.medium])
+            }
         }
     }
+    
     private func delete(at offsets: IndexSet) {
         paymentManager.paymentRecords.remove(atOffsets: offsets)
     }
