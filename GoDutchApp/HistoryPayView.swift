@@ -33,7 +33,7 @@ struct HistoryPayView: View {
                         Text("\(Int(record.personAmountMoney))円")
                     }
                     .onTapGesture {
-                        print ("wifi")
+                        
                     }
                 }
                 .onDelete(perform: delete)

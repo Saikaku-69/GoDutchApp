@@ -15,6 +15,7 @@
 		7F6EEEBD2CDB5F6000E0929B /* HistoryPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEBC2CDB5F6000E0929B /* HistoryPayView.swift */; };
 		7F6EEEC02CDB613F00E0929B /* ContentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEBF2CDB613F00E0929B /* ContentTabView.swift */; };
 		7F6EEEC22CDB6BAF00E0929B /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */; };
+		7FA009F72CDCBA2D000F695E /* MsgTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA009F62CDCBA2D000F695E /* MsgTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7F6EEEBC2CDB5F6000E0929B /* HistoryPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPayView.swift; sourceTree = "<group>"; };
 		7F6EEEBF2CDB613F00E0929B /* ContentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabView.swift; sourceTree = "<group>"; };
 		7F6EEEC12CDB6BAF00E0929B /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		7FA009F62CDCBA2D000F695E /* MsgTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		7F6EEEA22CDA19BF00E0929B /* GoDutchApp */ = {
 			isa = PBXGroup;
 			children = (
+				7FA009F52CDCBA0D000F695E /* DetailSheetMessage */,
 				7FA009F42CDC9B3D000F695E /* MyPage */,
 				7F6EEEBE2CDB612E00E0929B /* MainView */,
 				7F6EEEA32CDA19BF00E0929B /* GoDutchApp.swift */,
@@ -93,6 +96,14 @@
 			children = (
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		7FA009F52CDCBA0D000F695E /* DetailSheetMessage */ = {
+			isa = PBXGroup;
+			children = (
+				7FA009F62CDCBA2D000F695E /* MsgTestView.swift */,
+			);
+			path = DetailSheetMessage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				7F6EEEC22CDB6BAF00E0929B /* PaymentManager.swift in Sources */,
 				7F6EEEC02CDB613F00E0929B /* ContentTabView.swift in Sources */,
 				7F6EEEA62CDA19BF00E0929B /* ContentView.swift in Sources */,
+				7FA009F72CDCBA2D000F695E /* MsgTestView.swift in Sources */,
 				7F6EEEA42CDA19BF00E0929B /* GoDutchApp.swift in Sources */,
 				7F6EEEBD2CDB5F6000E0929B /* HistoryPayView.swift in Sources */,
 				7F6EEEB92CDA28E400E0929B /* MoneyManager.swift in Sources */,

@@ -23,6 +23,11 @@ struct ContentTabView: View {
                     Label("履歴",systemImage: "clock")
                 }
                 .tag(2)
+            //Test
+            MsgTestView()
+                .tabItem {
+                    Label("Test",systemImage: "")
+                }
         }
     }
 }
