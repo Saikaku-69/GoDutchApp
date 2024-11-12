@@ -10,11 +10,24 @@ import SwiftUI
 struct MemoView: View {
     var record: PaymentRecords
     
-    @AppStorage("memo") private var memo:String = ""
+    @AppStorage("memoListData") private var memoListData: String = ""
+    @State private var memoList: [String] = []
     @State private var inputMemo:String = ""
+    
+    init(record: PaymentRecords) {
+        self.record = record
+        // 在初始化时解码存储的数据
+        if let data = memoListData.data(using: .utf8),
+           let decodedList = try? JSONDecoder().decode([String].self, from: data) {
+            _memoList = State(initialValue: decodedList)
+        }
+    }
     
     var body: some View {
         VStack {
+            ForEach(memoList, id: \.self) { memo in
+                Text(memo)
+            }
             HStack {
                 Text("メモ")
                 TextField("入力してください", text:$inputMemo)
@@ -23,16 +36,23 @@ struct MemoView: View {
             }
             HStack {
                 Button("Save") {
-                    memo = inputMemo
+                    memoList.append(inputMemo)
+                    inputMemo = ""
+                    saveMemoList()
                 }
-                
                 Button("Delect") {
-                    memo = ""
+                    memoList.removeAll()
+                    saveMemoList()
                 }
             }
-            Text("\(memo)")
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity)
+    }
+    private func saveMemoList() {
+        if let encodedData = try? JSONEncoder().encode(memoList),
+           let encodedString = String(data: encodedData, encoding: .utf8) {
+            memoListData = encodedString
+        }
     }
 }
 
