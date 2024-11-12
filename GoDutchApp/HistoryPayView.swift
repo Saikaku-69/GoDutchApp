@@ -35,7 +35,6 @@ struct HistoryPayView: View {
                     }
                     .onTapGesture {
                         selectedItem = record
-                        print (selectedItem ?? 0)
                     }
                 }
                 .onDelete(perform: delete)
