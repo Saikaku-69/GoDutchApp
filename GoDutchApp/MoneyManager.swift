@@ -10,6 +10,7 @@ import SwiftUI
 
 class MoneyManager: ObservableObject {
     static let shared = MoneyManager()
+    
     @Published var selectedDate = Date()
     @Published var totalPrice:Double  = 0
     @Published var headCount:Double = 1
@@ -33,8 +34,20 @@ class MoneyManager: ObservableObject {
     }
     
     func calculatePersonAmount() {
+        
+        //修复金钱小于人数的时候的bug
+        
         if headCount > 0 {
-            personAmount = totalPrice / headCount
+            
+            let price = Int(totalPrice / headCount)
+            personAmount = totalPrice / headCount * 10 / 10
+            
+            if personAmount / Double(price) == 1 {
+                
+            } else {
+                personAmount = Double(price + 1)
+            }
+            
         } else {
             personAmount = 0
         }

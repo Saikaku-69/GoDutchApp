@@ -7,19 +7,6 @@
 import Foundation
 import SwiftUI
 
-class PaymentRecords:Identifiable, Codable {
-    var id = UUID()
-    var data: String
-    var totalMoney: Double
-    var personAmountMoney: Double
-    
-    init(data: String, totalMoney: Double, personAmountMoney: Double) {
-        self.data = data
-        self.totalMoney = totalMoney
-        self.personAmountMoney = personAmountMoney
-    }
-}
-
 struct HistoryPayView: View {
     @EnvironmentObject var paymentManager: PaymentManager
     @State private var selectedItem: PaymentRecords? = nil

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject var paymentManager: PaymentManager
     @ObservedObject private var moneyManager = MoneyManager.shared
     @State private var headCount:Int = 1
@@ -22,12 +23,25 @@ struct ContentView: View {
                     isFocused = false
                 }
             VStack {
+                
                 HStack {
                     DatePicker("", selection: $moneyManager.selectedDate,
                                displayedComponents: .date)
                     .labelsHidden()
+                    
                     Spacer()
+                    
+                    Text("人数選択:")
+                    Picker(selection: $headCount, label: Text("人数")) {
+                        ForEach(1..<16) { num in
+                            Text("\(num)人").tag(num)
+                        }
+                    }
+                    .frame(width:100)
+                    .pickerStyle(WheelPickerStyle())
+                    
                 } //日程
+                
                 HStack {
                     Spacer()
                     Text("金額：")
@@ -46,42 +60,47 @@ struct ContentView: View {
                 } //金額入力
                 .frame(maxWidth:.infinity)
                 .padding(.horizontal)
-                Picker(selection: $headCount, label: Text("人数")) {
-                    ForEach(1..<16) { num in
-                        Text("\(num)人").tag(num)
-                    }
-                } //人数選択
-                .frame(width:100)
-                .pickerStyle(WheelPickerStyle()) //ScrollType
-                Spacer()
+                .padding(.vertical,80)
+                
                 Button(action: {
                     moneyManager.headCount = Double(headCount)
                     moneyManager.calculatePersonAmount()
                     isFocused = false
-                    resultOpacity = 0.8
+                    if inputMoney.isEmpty {
+                        resultOpacity = 0.0
+                    } else {
+                        resultOpacity = 0.8
+                    }
                 }) {
                     Text("計算")
                         .padding(.horizontal)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
                 } //計算実行ボタン
-                Spacer()
+                
                 HStack {
                     Text("一人当たり金額：")
                     Spacer()
-                    Text("\(moneyManager.personAmount, specifier: "%.1f")円")
+                    Text("\(Int(moneyManager.personAmount))円")
                         .opacity(resultOpacity)
+                        .underline(color: .gray)
                 } //計算結果
-                Spacer()
+                .padding(50)
+                
                 Button(action: {
                     saveData()
+                    inputMoney = ""
+                    moneyManager.personAmount = 0
+                    resultOpacity = 0.0
                 }) {
                     Text("保存")
                         .padding(.horizontal)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
                 } //記録として保存
+                
+                Spacer()
             }
-            .frame(height:UIScreen.main.bounds.height/1.5)
             .padding(.horizontal)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
