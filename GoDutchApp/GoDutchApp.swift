@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct GoDutchApp: App {
     @StateObject private var paymentManager = PaymentManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentTabView()

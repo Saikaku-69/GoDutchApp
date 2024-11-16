@@ -8,6 +8,19 @@
 import Foundation
 import SwiftUI
 
+class PaymentRecords:Identifiable, Codable {
+    var id = UUID()
+    var data: String
+    var totalMoney: Double
+    var personAmountMoney: Double
+    
+    init(data: String, totalMoney: Double, personAmountMoney: Double) {
+        self.data = data
+        self.totalMoney = totalMoney
+        self.personAmountMoney = personAmountMoney
+    }
+}
+
 class PaymentManager: ObservableObject {
     static let shared = PaymentManager()
     @AppStorage("paymentRecords") private var paymentRecordsData: Data = Data()
