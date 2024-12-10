@@ -25,9 +25,11 @@ struct MemoView: View {
     
     var body: some View {
         VStack {
+            
             ForEach(memoList, id: \.self) { memo in
                 Text(memo)
             }
+            
             HStack {
                 Text("メモ")
                 TextField("入力してください", text:$inputMemo)
@@ -40,11 +42,15 @@ struct MemoView: View {
                     inputMemo = ""
                     saveMemoList()
                 }
+                
+                Spacer()
+                
                 Button("Delect") {
                     memoList.removeAll()
                     saveMemoList()
                 }
             }
+            .frame(width: 200)
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity)
     }
