@@ -22,29 +22,33 @@ struct ContentView: View {
                 .onTapGesture {
                     isFocused = false
                 }
+            
             VStack {
                 
+                DatePicker("", selection: $moneyManager.selectedDate,
+                           displayedComponents: .date)
+                .labelsHidden()
+                .datePickerStyle(GraphicalDatePickerStyle())
+                
                 HStack {
-                    DatePicker("", selection: $moneyManager.selectedDate,
-                               displayedComponents: .date)
-                    .labelsHidden()
+                    Text("参加者数")
                     
                     Spacer()
                     
-                    Text("人数選択:")
                     Picker(selection: $headCount, label: Text("人数")) {
+                        
                         ForEach(1..<16) { num in
                             Text("\(num)人").tag(num)
                         }
                     }
-                    .frame(width:100)
+                    .frame(width:100,height: 50)
                     .pickerStyle(WheelPickerStyle())
-                    
-                } //日程
+                } //人数
                 
                 HStack {
+                    Text("総金額")
+                    
                     Spacer()
-                    Text("金額：")
                     TextField("",text: $inputMoney)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width:100)
@@ -58,51 +62,51 @@ struct ContentView: View {
                         }
                     Text("円")
                 } //金額入力
-                .frame(maxWidth:.infinity)
-                .padding(.horizontal)
-                .padding(.vertical,80)
-                
-                Button(action: {
-                    moneyManager.headCount = Double(headCount)
-                    moneyManager.calculatePersonAmount()
-                    isFocused = false
-                    if inputMoney.isEmpty {
-                        resultOpacity = 0.0
-                    } else {
-                        resultOpacity = 0.8
-                    }
-                }) {
-                    Text("計算")
-                        .padding(.horizontal)
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
-                } //計算実行ボタン
                 
                 HStack {
-                    Text("一人当たり金額：")
+                    Text("一人当たり")
                     Spacer()
                     Text("\(Int(moneyManager.personAmount))円")
-                        .opacity(resultOpacity)
-                        .underline(color: .gray)
                 } //計算結果
-                .padding(50)
+                .opacity(resultOpacity)
+                .padding(.vertical,10)
                 
-                Button(action: {
-                    saveData()
-                    inputMoney = ""
-                    moneyManager.personAmount = 0
-                    resultOpacity = 0.0
-                }) {
-                    Text("保存")
-                        .padding(.horizontal)
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
-                } //記録として保存
-                
-                Spacer()
+                HStack {
+                    
+                    Button(action: {
+                        moneyManager.headCount = Double(headCount)
+                        moneyManager.calculatePersonAmount()
+                        isFocused = false
+                        if inputMoney.isEmpty {
+                            resultOpacity = 0.0
+                        } else {
+                            resultOpacity = 0.8
+                        }
+                    }) {
+                        Text("計算")
+                            .padding(16)
+                            .overlay(Circle().stroke(lineWidth:1.0))
+                    } //計算実行ボタン
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        saveData()
+                        inputMoney = ""
+                        moneyManager.personAmount = 0
+                        resultOpacity = 0.0
+                    }) {
+                        Text("保存")
+                            .padding(16)
+                            .overlay(Circle().stroke(lineWidth:1.0))
+                    } //記録として保存
+                }
+                .frame(width:200)
             }
             .padding(.horizontal)
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea(.keyboard)
     }
     
     private func saveData() {
