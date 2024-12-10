@@ -31,8 +31,13 @@ struct MemoView: View {
     var body: some View {
         VStack {
             
-            ForEach(memoList, id: \.self) { memo in
-                Text(memo)
+//            ForEach(Array(memoList.enumerated()), id: \.element) { index, memo in
+//                Text("\(index + 1).\(memo)")
+//            } //元素本身作为索引
+            //使用元素本身作为 ID 时，如果有重复的元素，SwiftUI 无法正确区分它们
+            
+            ForEach(memoList.indices,id: \.self) { index in
+                Text("\(index + 1).\(memoList[index])")
             }
             
             HStack {
