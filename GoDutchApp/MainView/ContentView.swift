@@ -29,27 +29,24 @@ struct ContentView: View {
                            displayedComponents: .date)
                 .labelsHidden()
                 .datePickerStyle(GraphicalDatePickerStyle())
-                .frame(minHeight: 300)
                 
                 HStack {
-                    Text("人数選択:")
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray,lineWidth:1.0))
+                    Text("参加者数")
+                    
                     Spacer()
+                    
                     Picker(selection: $headCount, label: Text("人数")) {
+                        
                         ForEach(1..<16) { num in
                             Text("\(num)人").tag(num)
                         }
                     }
-                    .frame(width:100)
+                    .frame(width:100,height: 50)
                     .pickerStyle(WheelPickerStyle())
-                    
-                } //日程
+                } //人数
                 
                 HStack {
-                    Text("金額：")
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray,lineWidth:1.0))
+                    Text("総金額")
                     
                     Spacer()
                     TextField("",text: $inputMoney)
@@ -64,6 +61,17 @@ struct ContentView: View {
                             resultOpacity = 0.0
                         }
                     Text("円")
+                } //金額入力
+                
+                HStack {
+                    Text("一人当たり")
+                    Spacer()
+                    Text("\(Int(moneyManager.personAmount))円")
+                } //計算結果
+                .opacity(resultOpacity)
+                .padding(.vertical,10)
+                
+                HStack {
                     
                     Button(action: {
                         moneyManager.headCount = Double(headCount)
@@ -76,20 +84,11 @@ struct ContentView: View {
                         }
                     }) {
                         Text("計算")
-                            .padding(.horizontal)
-                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
+                            .padding(16)
+                            .overlay(Circle().stroke(lineWidth:1.0))
                     } //計算実行ボタン
                     
-                } //金額入力
-                
-                HStack {
-                    Text("一人当たり金額：")
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray,lineWidth:1.0))
                     Spacer()
-                    Text("\(Int(moneyManager.personAmount))円")
-                        .opacity(resultOpacity)
-                        .underline(color: .gray)
                     
                     Button(action: {
                         saveData()
@@ -98,11 +97,11 @@ struct ContentView: View {
                         resultOpacity = 0.0
                     }) {
                         Text("保存")
-                            .padding(.horizontal)
-                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1.0))
+                            .padding(16)
+                            .overlay(Circle().stroke(lineWidth:1.0))
                     } //記録として保存
-                    
-                } //計算結果
+                }
+                .frame(width:200)
             }
             .padding(.horizontal)
         }
