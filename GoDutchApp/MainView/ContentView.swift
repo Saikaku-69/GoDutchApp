@@ -29,6 +29,7 @@ struct ContentView: View {
                            displayedComponents: .date)
                 .labelsHidden()
                 .datePickerStyle(GraphicalDatePickerStyle())
+                .frame(minHeight: 300)
                 
                 HStack {
                     Text("人数選択:")
@@ -106,6 +107,7 @@ struct ContentView: View {
             .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea(.keyboard)
     }
     
     private func saveData() {
