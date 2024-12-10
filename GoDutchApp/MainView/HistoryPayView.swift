@@ -16,6 +16,17 @@ struct HistoryPayView: View {
             List {
                 ForEach(paymentManager.paymentRecords) { record in
                     HStack {
+                        
+//                        Button(action :{
+//                            
+//                            print(record.isCollect)
+//                            record.isCollect.toggle()
+//                            
+//                        }) {
+//                            Image(systemName: record.isCollect ? "star.fill" : "star")
+//                        }
+//                        .buttonStyle(PlainButtonStyle())
+                        
                         Text(record.data)
                         Spacer()
                         Text("\(Int(record.personAmountMoney))円")
