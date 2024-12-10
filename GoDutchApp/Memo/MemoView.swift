@@ -10,14 +10,19 @@ import SwiftUI
 struct MemoView: View {
     var record: PaymentRecords
     
-    @AppStorage("memoListData") private var memoListData: String = ""
+    @AppStorage private var memoListData: String
     @State private var memoList: [String] = []
     @State private var inputMemo:String = ""
     
     init(record: PaymentRecords) {
+        
         self.record = record
+        
+        let key = "memoListData_\(record.id)"
+        _memoListData = AppStorage(wrappedValue: "", key)
+        
         // 在初始化时解码存储的数据
-        if let data = memoListData.data(using: .utf8),
+        if let data = UserDefaults.standard.string(forKey: key)?.data(using: .utf8),
            let decodedList = try? JSONDecoder().decode([String].self, from: data) {
             _memoList = State(initialValue: decodedList)
         }
