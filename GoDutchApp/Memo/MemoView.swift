@@ -73,5 +73,5 @@ struct MemoView: View {
 }
 
 #Preview {
-    MemoView(record: PaymentRecords(data: "Test Record", totalMoney: 100.0, personAmountMoney: 50.0))
+    MemoView(record: PaymentRecords(data: "Test Record", totalMoney: 100.0, personAmountMoney: 50.0, isCollect: false))
 }

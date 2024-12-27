@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HistoryPayView: View {
     @EnvironmentObject var paymentManager: PaymentManager
+    @ObservedObject private var moneyManager = MoneyManager.shared
     @State private var selectedItem: PaymentRecords? = nil
     
     var body: some View {
@@ -17,15 +18,16 @@ struct HistoryPayView: View {
                 ForEach(paymentManager.paymentRecords) { record in
                     HStack {
                         
-//                        Button(action :{
-//                            
-//                            print(record.isCollect)
-//                            record.isCollect.toggle()
-//                            
-//                        }) {
-//                            Image(systemName: record.isCollect ? "star.fill" : "star")
-//                        }
-//                        .buttonStyle(PlainButtonStyle())
+                        Button(action :{
+                            
+                            let updatedRecord = record
+                            updatedRecord.isCollect.toggle()
+                            paymentManager.updateRecord(updatedRecord)
+                            
+                        }) {
+                            Image(systemName: record.isCollect ? "star.fill" : "star")
+                        }
+                        .buttonStyle(PlainButtonStyle())
                         
                         Text(record.data)
                         Spacer()

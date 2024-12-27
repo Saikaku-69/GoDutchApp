@@ -68,7 +68,7 @@ struct ContentView: View {
                     Spacer()
                     Text("\(Int(moneyManager.personAmount))円")
                 } //計算結果
-                .opacity(resultOpacity)
+//                .opacity(resultOpacity)
                 .padding(.vertical,10)
                 
                 HStack {
@@ -91,10 +91,11 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        saveData()
+                        moneyManager.saveData()
                         inputMoney = ""
                         moneyManager.personAmount = 0
                         resultOpacity = 0.0
+                        
                     }) {
                         Text("保存")
                             .padding(16)
@@ -107,14 +108,6 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.keyboard)
-    }
-    
-    private func saveData() {
-        let data = moneyManager.selectedDateString
-        let totalMoney = moneyManager.totalPrice
-        let personAmountMoney = moneyManager.personAmount
-        
-        paymentManager.addPaymentRecord(data: data, totalMoney: totalMoney, personAmountMoney: personAmountMoney)
     }
 }
 
