@@ -44,6 +44,8 @@ class MoneyManager: ObservableObject {
             
             if personAmount / Double(price) == 1 {
                 
+            } else if totalPrice == 0 {
+                personAmount = 0
             } else {
                 personAmount = Double(price + 1)
             }
